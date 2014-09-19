@@ -1,0 +1,129 @@
+Git : notes de cours
+Anne Pacalet
+
+%--------------------
++ Aide mémoire sur git +
+
+++ Configuration ++
+
+Après avoir installé ``git`` sur la machine, il faut configurer un utilisateur :
+
+```
+$ git config --global user.name "nom ou pseudo"
+$ git config --global user.email "identifiant@email.com"
+```
+
+Seules les deux propriétés ci-dessus sont obligatoires,
+mais on peut aussi configurer
+[plein d'autres choses http://git-scm.com/book/en/Customizing-Git-Git-Configuration].
+
+Si on veut avoir une configuration différente pour un dépot, par exemple
+pour un projet sur GitHub, on peut faire :
+```
+$ cd mon_projet
+$ git config user.email "username@users.noreply.github.com"
+$ git config user.name "username"
+```
+
+Pour vérifier qu'on a bien l'identité que l'on souhaite avant de lancer
+des commandes, on peut faire par exemple :
+``` $ git config user.email
+
+++ Créer un nouveau projet ++
+
+On crée ici un projet local. On verra plus loin comment utiliser un dépôt
+central.
+
+```
+$ mkdir MonProjet
+$ cd MonProjet
+$ git init
+```
+
+Le répertoire est maintenant prêt à recevoir les fichiers du projet.
+
+++ Commandes de base ++
+
+On crée maintenant quelques fichiers dans le projet, et on lance :
+
+``` $ git status
+
+On voit qu'on a une liste de ``Fichiers non suivis``
+car ils sont encore inconnus de ``git``.
+Pour qu'ils soient connus de ``git``, on fait :
+
+``` $ git add f1 f2
+
+On voit avec ``git status`` que les fichiers sont maintenant dans l'index.
+Pour les enregistrer dans l'historique, on fait :
+
+``` $ git commit -m "mon message"
+
+Par la suite, on peut directement faire un //commit// sur les fichiers
+connus de ``git`` avec l'option ``-a``.
+
+``` $ git commit -a -m "mon message"
+ou plus simplement :
+``` $ git commit -am "mon message"
+
+On peut aussi ajouter les fichiers connus dans l'index avec:
+``` $ git add -u .
+
+++ Voir l'historique ++
+
+Il s'agit de la commande ``git log``.
+
+- numéro de //commit// (clé de hachage ``SHA``)
+- auteur
+- date
+- message de //commit//
+-
+
+Le commit le plus récent est en haut.
+
+++ Se déplacer dans l'historique ++
+
+Il s'agit de la commande ``git checkout``.
+
+On regarde dans le log, et on choisit le SHA du commit que l'on veut :
+
+``` $ git checkout xxxxxxxxxxxxxxxx
+
+Avec ``git log`` on voit bien qu'on est remonté.
+
+Pour revenir au dernier commit :
+
+``` $ git checkout master
+
+Cela permet de se balader facilement dans l'historique.
+
+++ Partage ++
+
+Un //remote// est un dépôt central partagé.
+
+Pour récupérer un projet : ``git clone <url>``.
+
+Pour créer un projet (sur GitHub par exemple) :
+le plus simple est de créer le dépot (sur GitHub : //New Repository//)
+et de le récupérer (avec ``git clone``).
+
+Après avoir bien travaillé et fait des ``commit`` locaux,
+il faut transférer tout ça sur le dépôt avec :
+```$ git push origin master
+
+- ``origin`` est le nom générique pour le dépot central.
+On pourrait très bien avec plusieurs dépôts avec des noms différents.
+- ``master`` est le nom de la branche.
+-
+
+
+Si quelqu'un d'autre a fait des modifications dans le dépôt, on les récupère
+avec :
+``` $ git pull origin master
+
+++ Liens utiles ++
+
+- la [doc officielle http://git-scm.com/doc]
+- le [cours OpenClassroom http://fr.openclassrooms.com/informatique/cours/gerer-son-code-avec-git-et-github]
+- l'[aide GitHub https://help.github.com/] : très bien faite
+-
