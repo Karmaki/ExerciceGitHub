@@ -9,7 +9,7 @@ ajouter et modifier des fichiers, et à gérer l'historique des modifications.
 Ne sachant trop quoi mettre dans ce projet, je vais y sauvegarder mes notes
 sur le cours ci-dessus.
 
-Comme d'habitude, j'utilise le format [text2tags](http://txt2tags.org/).
+Comme d'habitude, j'utilise le format [txt2tags](http://txt2tags.org/).
 Le fichier de notes `git.t2t`
 est donc accompagné d'un `Makefile` pour le compiler au format `.pdf`.
 Je n'ai pas pris le temps de créer un fichier de style, et le résultat n'est
