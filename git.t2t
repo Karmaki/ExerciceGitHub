@@ -59,6 +59,8 @@ Pour les enregistrer dans l'historique, on fait :
 
 ``` $ git commit -m "mon message"
 
+Il faut prendre soin d'avoir des messages clairs pour s'y retrouver.
+
 Par la suite, on peut directement faire un //commit// sur les fichiers
 connus de ``git`` avec l'option ``-a``.
 
@@ -66,32 +68,33 @@ connus de ``git`` avec l'option ``-a``.
 ou plus simplement :
 ``` $ git commit -am "mon message"
 
-On peut aussi ajouter les fichiers connus dans l'index avec:
+On peut aussi ajouter les fichiers connus dans l'index avec :
 ``` $ git add -u .
 
 ++ Voir l'historique ++
 
-Il s'agit de la commande ``git log``.
+On peut voir l'historique à l'aide de la commande :
+``` $ git log
 
+On obtient une liste où pour chaque //commit//, on a :
 - numéro de //commit// (clé de hachage ``SHA``)
 - auteur
 - date
 - message de //commit//
 -
 
-Le commit le plus récent est en haut.
+Le //commit// le plus récent est en haut.
 
 ++ Se déplacer dans l'historique ++
 
-Il s'agit de la commande ``git checkout``.
-
-On regarde dans le log, et on choisit le SHA du commit que l'on veut :
-
+Pour se déplacer sur un //commit//, il faut récupérer sa clé dans le log,
+et faire :
 ``` $ git checkout xxxxxxxxxxxxxxxx
 
-Avec ``git log`` on voit bien qu'on est remonté.
+Avec ``git log`` on voit bien qu'on est remonté,
+et on peut observer que les fichiers sont revenu dans leur état antérieur.
 
-Pour revenir au dernier commit :
+Pour revenir au dernier //commit//, on fait :
 
 ``` $ git checkout master
 
@@ -99,19 +102,25 @@ Cela permet de se balader facilement dans l'historique.
 
 ++ Partage ++
 
-Un //remote// est un dépôt central partagé.
+Quand on travaille à plusieurs, il est utile d'avoir un dépôt central partagé,
+autrement appelé //remote//.
 
-Pour récupérer un projet : ``git clone <url>``.
+Pour récupérer un projet existant :
+``` $ git clone <url>
+L'URL est fourni sur l'interface web du dépôt.
 
-Pour créer un projet (sur GitHub par exemple) :
-le plus simple est de créer le dépot (sur GitHub : //New Repository//)
-et de le récupérer (avec ``git clone``).
+Pour créer un projet partagé (sur GitHub par exemple),
+le plus simple est de le créer sur le dépôt central
+(sur GitHub : //New Repository// en indiquant que l'on veut créer le fichier
+README).
+On peut ensuite le récupérer (avec ``git clone``).
 
-Après avoir bien travaillé et fait des ``commit`` locaux,
+Après avoir bien travaillé et fait des //commit// locaux comme on l'a
+vu plus haut,
 il faut transférer tout ça sur le dépôt avec :
-```$ git push origin master
+``` $ git push origin master
 
-- ``origin`` est le nom générique pour le dépot central.
+- ``origin`` est le nom générique pour le dépôt central.
 On pourrait très bien avec plusieurs dépôts avec des noms différents.
 - ``master`` est le nom de la branche.
 -
@@ -127,3 +136,5 @@ avec :
 - le [cours OpenClassroom http://fr.openclassrooms.com/informatique/cours/gerer-son-code-avec-git-et-github]
 - l'[aide GitHub https://help.github.com/] : très bien faite
 -
+
+%%% vim: syntax=txt2tags : spell spelllang=fr
